@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active Directory: The Central Nervous System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #e2e8f0; /* Slate 200 */
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 4px;
+        }
+
+        /* Animations */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, visibility;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        .spin-slow {
+            animation: spin 15s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .pulse-glow {
+            animation: pulse-blue 2s infinite;
+        }
+
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        .connector-line {
+            position: absolute;
+            background-color: #334155;
+            z-index: 0;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation / Progress -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="network" class="text-blue-500 w-6 h-6"></i>
+                    <span class="font-bold text-xl tracking-tight text-white">Active Directory <span class="text-blue-500">Decoded</span></span>
+                </div>
+                <div class="hidden md:block text-sm text-slate-400">
+                    Enterprise Identity Infrastructure
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Wrapper -->
+    <main class="pt-20 pb-20 space-y-32">
+
+        <!-- PAGE 1: Central Nervous System -->
+        <section class="max-w-6xl mx-auto px-4 fade-in-section">
+            <div class="text-center mb-12">
+                <span class="text-blue-400 font-semibold tracking-wider text-sm uppercase">Part 1</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold mt-2 text-white">The Central Nervous System</h1>
+                <p class="mt-4 text-xl text-slate-400">What is Active Directory?</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Visual -->
+                <div class="relative h-96 flex justify-center items-center">
+                    <!-- Orbits -->
+                    <div class="absolute w-64 h-64 border-2 border-slate-700 rounded-full spin-slow"></div>
+                    <div class="absolute w-80 h-80 border border-slate-800 rounded-full spin-slow" style="animation-direction: reverse;"></div>
+                    
+                    <!-- Central Hub -->
+                    <div class="relative z-10 w-32 h-32 bg-blue-600 rounded-full flex items-center justify-center pulse-glow shadow-2xl shadow-blue-500/20">
+                        <i data-lucide="brain-circuit" class="w-16 h-16 text-white"></i>
+                    </div>
+
+                    <!-- Nodes -->
+                    <div class="absolute top-10 left-10 bg-slate-800 p-3 rounded-lg border border-slate-700 flex flex-col items-center">
+                        <i data-lucide="users" class="text-green-400 mb-1"></i>
+                        <span class="text-xs">Users</span>
+                    </div>
+                    <div class="absolute bottom-10 right-10 bg-slate-800 p-3 rounded-lg border border-slate-700 flex flex-col items-center">
+                        <i data-lucide="printer" class="text-orange-400 mb-1"></i>
+                        <span class="text-xs">Devices</span>
+                    </div>
+                    <div class="absolute top-10 right-10 bg-slate-800 p-3 rounded-lg border border-slate-700 flex flex-col items-center">
+                        <i data-lucide="shield-check" class="text-purple-400 mb-1"></i>
+                        <span class="text-xs">Policies</span>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-6">
+                    <div class="glass-card p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-white mb-2 flex items-center gap-2">
+                            <i data-lucide="fingerprint" class="text-blue-500"></i> Identity & Access Management
+                        </h3>
+                        <p class="text-slate-300">AD is the backbone of a Windows domain network, managing authentication and authorization. <span class="text-blue-400 font-bold">90% of Fortune 500</span> companies use it.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-xl border-l-4 border-l-yellow-500">
+                        <h3 class="text-xl font-bold text-white mb-2">The Trust System</h3>
+                        <p class="text-slate-300 mb-3">While admins see a directory, attackers see a map of trust.</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="help-circle" class="w-4 h-4 text-yellow-500"></i> Who are you? (Identity)</li>
+                            <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="key" class="w-4 h-4 text-yellow-500"></i> How do you authenticate?</li>
+                            <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="lock" class="w-4 h-4 text-yellow-500"></i> What can you do? (Authorization)</li>
+                            <li class="flex items-center gap-2 text-sm text-slate-300"><i data-lucide="map-pin" class="w-4 h-4 text-yellow-500"></i> Where can you do it?</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 2: Architecture -->
+        <section class="max-w-6xl mx-auto px-4 fade-in-section">
+            <div class="text-center mb-12">
+                <span class="text-emerald-400 font-semibold tracking-wider text-sm uppercase">Part 2</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-white">The Architecture of Trust</h2>
+            </div>
+
+            <div class="relative flex flex-col items-center space-y-8">
+                <!-- Connector Line -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-slate-700 -ml-0.5 z-0"></div>
+
+                <!-- Forest -->
+                <div class="relative z-10 w-full md:w-2/3 lg:w-1/2 glass-card p-6 rounded-xl border-t-4 border-t-emerald-500">
+                    <div class="absolute -left-16 top-1/2 -translate-y-1/2 hidden md:block text-emerald-500 font-bold text-lg">Top Level</div>
+                    <h3 class="text-xl font-bold flex items-center gap-2">
+                        <i data-lucide="trees" class="text-emerald-500"></i> The Forest
+                    </h3>
+                    <p class="text-sm text-slate-300 mt-2">The highest-level construct. Maximum trust boundary. If an attacker owns the forest root, they own the infrastructure.</p>
+                </div>
+
+                <!-- Tree -->
+                <div class="relative z-10 w-full md:w-2/3 lg:w-1/2 glass-card p-6 rounded-xl border-t-4 border-t-teal-500">
+                    <h3 class="text-xl font-bold flex items-center gap-2">
+                        <i data-lucide="network" class="text-teal-500"></i> The Tree
+                    </h3>
+                    <p class="text-sm text-slate-300 mt-2">A collection of domains sharing a namespace. Parent-child relationships create automatic, transitive trusts.</p>
+                </div>
+
+                <!-- Domain -->
+                <div class="relative z-10 w-full md:w-2/3 lg:w-1/2 glass-card p-6 rounded-xl border-t-4 border-t-cyan-500">
+                    <h3 class="text-xl font-bold flex items-center gap-2">
+                        <i data-lucide="box" class="text-cyan-500"></i> The Domain
+                    </h3>
+                    <p class="text-sm text-slate-300 mt-2">Primary operational unit. Contains users, computers, and Domain Controllers. A domain is only as secure as its trusts.</p>
+                </div>
+
+                <!-- OU -->
+                <div class="relative z-10 w-full md:w-2/3 lg:w-1/2 glass-card p-6 rounded-xl border-t-4 border-t-blue-500">
+                    <h3 class="text-xl font-bold flex items-center gap-2">
+                        <i data-lucide="folder-tree" class="text-blue-500"></i> Organizational Units (OUs)
+                    </h3>
+                    <p class="text-sm text-slate-300 mt-2">Containers for organizing objects and applying Group Policy (GPOs). <strong class="text-red-400">Not a security boundary!</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 3: Org vs Access -->
+        <section class="max-w-7xl mx-auto px-4 fade-in-section bg-slate-800/50 py-16 rounded-3xl">
+            <div class="text-center mb-10">
+                <span class="text-purple-400 font-semibold tracking-wider text-sm uppercase">Part 3</span>
+                <h2 class="text-3xl font-bold text-white">Organization vs. Access</h2>
+                <p class="text-slate-400">A Critical Distinction</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- OU Card -->
+                <div class="bg-slate-900 border border-slate-700 p-8 rounded-2xl relative overflow-hidden group hover:border-blue-500 transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">Organizational Unit</h3>
+                        <i data-lucide="folder-cog" class="text-blue-500 w-8 h-8"></i>
+                    </div>
+                    <p class="text-blue-300 font-semibold mb-4">Policy Application</p>
+                    <ul class="space-y-3 text-slate-300 text-sm">
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Applies Group Policy (GPOs) for settings (scripts, config).</li>
+                        <li class="flex items-start"><span class="text-blue-500 mr-2">•</span>Object can reside in only <span class="text-white font-bold mx-1">ONE</span> OU.</li>
+                        <li class="flex items-start"><span class="text-red-400 mr-2">⚠</span>Risk: Misconfigured OUs allow malicious GPOs.</li>
+                    </ul>
+                </div>
+
+                <!-- Group Card -->
+                <div class="bg-slate-900 border border-slate-700 p-8 rounded-2xl relative overflow-hidden group hover:border-green-500 transition-colors">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-green-500"></div>
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-2xl font-bold text-white">Security Group</h3>
+                        <i data-lucide="users-round" class="text-green-500 w-8 h-8"></i>
+                    </div>
+                    <p class="text-green-300 font-semibold mb-4">Access Control</p>
+                    <ul class="space-y-3 text-slate-300 text-sm">
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Manages permissions for resources (files, apps).</li>
+                        <li class="flex items-start"><span class="text-green-500 mr-2">•</span>Users can belong to <span class="text-white font-bold mx-1">MULTIPLE</span> groups.</li>
+                        <li class="flex items-start"><span class="text-red-400 mr-2">⚠</span>Risk: Nested groups hide privilege escalation paths.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8">
+                <blockquote class="text-lg italic text-slate-400 border-l-4 border-purple-500 pl-4 inline-block">
+                    "OUs are administrative containers focused on policy... while security groups are permission containers focused on access."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- PAGE 4: Core Services -->
+        <section class="max-w-6xl mx-auto px-4 fade-in-section">
+            <div class="flex flex-col md:flex-row gap-12 items-start">
+                <div class="md:w-1/3">
+                    <span class="text-orange-400 font-semibold tracking-wider text-sm uppercase">Part 4</span>
+                    <h2 class="text-4xl font-bold text-white mt-2 mb-4">Core Services Ecosystem</h2>
+                    <p class="text-slate-400">Active Directory is more than just logins. It's a suite of four distinct modules serving the enterprise.</p>
+                    <div class="mt-8">
+                        <i data-lucide="server" class="w-32 h-32 text-slate-700"></i>
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 grid grid-cols-1 gap-4">
+                    <!-- AD DS -->
+                    <div class="bg-slate-800 p-5 rounded-lg border-l-4 border-blue-500 hover:bg-slate-750 transition shadow-lg">
+                        <h4 class="text-lg font-bold text-white flex items-center justify-between">
+                            AD Domain Services (AD DS)
+                            <span class="bg-blue-500/20 text-blue-300 text-xs px-2 py-1 rounded">The Core</span>
+                        </h4>
+                        <p class="text-sm text-slate-300 mt-2">Handles logins, permissions, and stores objects. <span class="text-red-400">Primary Pentest Target.</span></p>
+                    </div>
+
+                    <!-- AD CS -->
+                    <div class="bg-slate-800 p-5 rounded-lg border-l-4 border-purple-500 hover:bg-slate-750 transition shadow-lg">
+                        <h4 class="text-lg font-bold text-white flex items-center justify-between">
+                            AD Certificate Services (AD CS)
+                            <span class="bg-purple-500/20 text-purple-300 text-xs px-2 py-1 rounded">PKI</span>
+                        </h4>
+                        <p class="text-sm text-slate-300 mt-2">Manages digital certificates (VPN, Wi-Fi). Misconfiguration leads to persistence rivaling domain compromise.</p>
+                    </div>
+
+                    <!-- AD LDS -->
+                    <div class="bg-slate-800 p-5 rounded-lg border-l-4 border-yellow-500 hover:bg-slate-750 transition shadow-lg">
+                        <h4 class="text-lg font-bold text-white flex items-center justify-between">
+                            AD Lightweight Directory (AD LDS)
+                            <span class="bg-yellow-500/20 text-yellow-300 text-xs px-2 py-1 rounded">Application</span>
+                        </h4>
+                        <p class="text-sm text-slate-300 mt-2">Directory capabilities for apps without domain dependencies.</p>
+                    </div>
+
+                     <!-- AD RMS -->
+                     <div class="bg-slate-800 p-5 rounded-lg border-l-4 border-pink-500 hover:bg-slate-750 transition shadow-lg">
+                        <h4 class="text-lg font-bold text-white flex items-center justify-between">
+                            AD Rights Management (AD RMS)
+                            <span class="bg-pink-500/20 text-pink-300 text-xs px-2 py-1 rounded">Protection</span>
+                        </h4>
+                        <p class="text-sm text-slate-300 mt-2">Enforces info protection (e.g., "Do Not Print") even after files leave the network.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 5: Authentication -->
+        <section class="max-w-6xl mx-auto px-4 fade-in-section">
+            <div class="text-center mb-12">
+                <span class="text-cyan-400 font-semibold tracking-wider text-sm uppercase">Part 5</span>
+                <h2 class="text-3xl font-bold text-white">The Language of Authentication</h2>
+            </div>
+
+            <div class="space-y-12">
+                <!-- Legacy -->
+                <div class="flex flex-col md:flex-row items-center gap-6 opacity-70">
+                    <div class="w-full md:w-1/4 text-right">
+                        <h3 class="text-xl font-bold text-slate-400">Legacy</h3>
+                        <p class="text-red-400 font-mono text-sm">INSECURE</p>
+                    </div>
+                    <div class="flex-1 bg-slate-800 p-6 rounded-xl border border-red-900/50">
+                        <h4 class="text-white font-bold mb-2">LM & NTLM</h4>
+                        <p class="text-sm text-slate-400">Uses challenge-response. Vulnerable to "Relay Attacks" and cracking. Lacks mutual authentication.</p>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="flex justify-center -my-6 text-slate-600">
+                    <i data-lucide="arrow-down" class="w-8 h-8"></i>
+                </div>
+
+                <!-- Modern -->
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="w-full md:w-1/4 text-right">
+                        <h3 class="text-xl font-bold text-white">Kerberos</h3>
+                        <p class="text-emerald-400 font-mono text-sm">THE STANDARD</p>
+                    </div>
+                    <div class="flex-1 bg-slate-800 p-6 rounded-xl border border-emerald-500/50 shadow-emerald-500/10 shadow-lg">
+                        <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="ticket" class="text-emerald-400"></i> Ticket-Based Protocol
+                        </h4>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs text-center">
+                            <div class="bg-slate-900 p-2 rounded border border-slate-700">
+                                <span class="block font-bold text-emerald-400">1. AS-REQ</span>
+                                <span class="text-slate-400">Ask KDC</span>
+                            </div>
+                            <div class="bg-slate-900 p-2 rounded border border-slate-700">
+                                <span class="block font-bold text-emerald-400">2. TGT</span>
+                                <span class="text-slate-400">Get Ticket</span>
+                            </div>
+                            <div class="bg-slate-900 p-2 rounded border border-slate-700">
+                                <span class="block font-bold text-emerald-400">3. TGS-REQ</span>
+                                <span class="text-slate-400">Use TGT</span>
+                            </div>
+                            <div class="bg-slate-900 p-2 rounded border border-slate-700">
+                                <span class="block font-bold text-emerald-400">4. Service</span>
+                                <span class="text-slate-400">Access App</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LDAP Note -->
+                <div class="mt-8 bg-slate-900 border-dashed border-2 border-slate-700 p-4 rounded-lg flex items-center gap-4 max-w-2xl mx-auto">
+                    <i data-lucide="search" class="text-slate-400"></i>
+                    <div>
+                        <strong class="text-white block">LDAP (The Query Tool)</strong>
+                        <span class="text-sm text-slate-400">Not authentication! Used to find objects. Used by tools like BloodHound to map attacks.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PAGE 6: Attacker's Perspective -->
+        <section class="max-w-5xl mx-auto px-4 fade-in-section pb-20">
+            <div class="bg-gradient-to-br from-red-900/20 to-slate-900 border border-red-900/50 rounded-3xl p-8 md:p-12 relative overflow-hidden">
+                <!-- Background decoration -->
+                <div class="absolute top-0 right-0 p-12 opacity-10">
+                    <i data-lucide="skull" class="w-64 h-64 text-red-500"></i>
+                </div>
+
+                <div class="relative z-10">
+                    <span class="text-red-500 font-bold tracking-wider text-sm uppercase flex items-center gap-2">
+                        <i data-lucide="siren" class="w-4 h-4"></i> Part 6
+                    </span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mt-2 mb-8">The Attacker's Perspective</h2>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-bold text-red-400 mb-4">The "Weakness" Equation</h3>
+                            <ul class="space-y-4">
+                                <li class="bg-slate-900/80 p-3 rounded border-l-2 border-red-500">
+                                    <div class="text-white font-semibold">Weak Passwords</div>
+                                    <div class="text-slate-400 text-sm">= Weak Identity</div>
+                                </li>
+                                <li class="bg-slate-900/80 p-3 rounded border-l-2 border-red-500">
+                                    <div class="text-white font-semibold">Excessive Groups</div>
+                                    <div class="text-slate-400 text-sm">= Weak Authorization</div>
+                                </li>
+                                <li class="bg-slate-900/80 p-3 rounded border-l-2 border-red-500">
+                                    <div class="text-white font-semibold">Poor Delegation</div>
+                                    <div class="text-slate-400 text-sm">= Weak Admin Control</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-bold text-orange-400 mb-4">Common Vectors</h3>
+                            <div class="space-y-3">
+                                <div class="flex gap-3">
+                                    <i data-lucide="flame" class="text-orange-500 shrink-0"></i>
+                                    <div>
+                                        <strong class="text-white">Kerberoasting</strong>
+                                        <p class="text-sm text-slate-400">Extracting service account hashes.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <i data-lucide="ticket-minus" class="text-orange-500 shrink-0"></i>
+                                    <div>
+                                        <strong class="text-white">Golden Ticket</strong>
+                                        <p class="text-sm text-slate-400">Forging TGTs for unlimited access.</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-3">
+                                    <i data-lucide="move-right" class="text-orange-500 shrink-0"></i>
+                                    <div>
+                                        <strong class="text-white">Lateral Movement</strong>
+                                        <p class="text-sm text-slate-400">Exploiting trusts to move domain-to-domain.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-red-900/30 text-center">
+                        <p class="text-xl text-white font-light italic">"For attackers, AD is both the <span class="text-red-500 font-bold">gateway</span> and the <span class="text-red-500 font-bold">prize</span>."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-950 text-slate-500 py-8 text-center text-sm">
+        <p>Active Directory Infographic &copy; 2023</p>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Scroll Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            const sections = document.querySelectorAll('.fade-in-section');
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
