@@ -4,6 +4,10 @@ Research shows that **90% of all Fortune 500 companies** use Microsoft Active Di
 
 ---
 
+![AD Overview](Active%20Directory%20MindMap.png)
+
+---
+
 ## What is Active Directory?
 Active Directory (AD) is an Identity and Access Management (IAM) service responsible for managing authentication and authorization across a network. It allows administrators to:
 * **Manage Objects:** Users, groups, and devices.
